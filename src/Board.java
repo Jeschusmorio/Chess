@@ -38,7 +38,7 @@ public class Board {
 			return true;	//a piece is already on this field
 		}
 	}
-	private int[] getCoordinatesOfPiece(Piece c) {
+	private int[] getCoordinatesOfPiece(Piece c) { //coordinates[0] = x; coordinates[1] = y
 		int[] coordinates = {-1, -1};	//negative values for error-detection if piece isn't on the board
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[i].length; j++) {
