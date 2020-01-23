@@ -1,16 +1,10 @@
+import java.util.Random;
 
 public class ChessMain {
 	final static int BOARDLENGTH = 8;
-	final static int NUMBEROFKINGS = 2;
-	final static int NUMBEROFQUEENS = 2;
-	final static int NUMBEROFROOKS = 4;
-	final static int NUMBEROFBISHOPS = 4;
-	final static int NUMBEROFKNIGHTS = 4;
-	final static int NUMBEROFPAWNS = 16;
-	final static int NUMBEROFPIECES = NUMBEROFKINGS + NUMBEROFQUEENS + 
-			NUMBEROFROOKS + NUMBEROFBISHOPS + NUMBEROFKNIGHTS + NUMBEROFPAWNS;
 
 	public static void main(String[] args) {
+		Random r = new Random();
 		ChessPieceType king = ChessPieceType.KING;
 		ChessPieceType queen = ChessPieceType.QUEEN;
 		ChessPieceType rook = ChessPieceType.ROOK;
@@ -18,34 +12,32 @@ public class ChessMain {
 		ChessPieceType knight = ChessPieceType.KNIGHT;
 		ChessPieceType pawn = ChessPieceType.PAWN;
 		
-		Board b1 = new Board(BOARDLENGTH);
-		
-		Piece[] kings = new Piece[NUMBEROFKINGS];
-		createPiece(kings, king);
-		Piece[] queens = new Piece[NUMBEROFQUEENS];
-		createPiece(queens, queen);
-		Piece[] rooks = new Piece[NUMBEROFROOKS];
-		createPiece(rooks, rook);
-		Piece[] bishops = new Piece[NUMBEROFBISHOPS];
-		createPiece(bishops, bishop);
-		Piece[] knights = new Piece[NUMBEROFKNIGHTS];
-		createPiece(knights, knight);
-		Piece[] pawns = new Piece[NUMBEROFPAWNS];
-		createPiece(pawns, pawn);
-		
-		
-	}
-	private static void createPiece(Piece[] p, ChessPieceType t) {
 		Colour w = Colour.WHITE;
 		Colour b = Colour.BLACK;
-		for (int i = 0; i < p.length; i++) {
-			if (i < (p.length/2)) {
-				p[i] = new Piece(w, t);
-			}
-			else {
-				p[i] = new Piece(b, t);
-			}
-		}
+		
+		Board b1 = new Board(BOARDLENGTH);
+		
+		Piece pawn1 = new Piece(w, pawn);
+		Piece pawn2 = new Piece(b, pawn);
+		Piece king1 = new Piece(b, king);
+		Piece queen1 = new Piece(w, queen);
+		Piece rook1 = new Piece(b, rook);
+		Piece knight1 = new Piece(w, knight);
+		Piece bishop1 = new Piece(w, bishop);
+		
+		b1.insertChessPiece(pawn1, 0, 0);
+		//b1.insertChessPiece(pawn2, 2, 2);
+		b1.removeChessPiece(pawn2);
+		b1.insertChessPiece(pawn2, 0, 0);
+		b1.insertChessPiece(king1, 2, 2);
+		b1.insertChessPiece(queen1, r.nextInt(BOARDLENGTH), r.nextInt(BOARDLENGTH));
+		b1.insertChessPiece(rook1, r.nextInt(BOARDLENGTH), r.nextInt(BOARDLENGTH));
+		b1.insertChessPiece(knight1, r.nextInt(BOARDLENGTH), r.nextInt(BOARDLENGTH));
+		b1.insertChessPiece(bishop1, r.nextInt(BOARDLENGTH), r.nextInt(BOARDLENGTH));
+		
+		System.out.println(b1.numberOfPiecesOnBoard(w));
+		System.out.println(b1.numberOfPiecesOnBoard(b));
+		System.out.println(b1.numberOfPiecesOnBoard());
 	}
 
 }
