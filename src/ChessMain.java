@@ -5,12 +5,12 @@ public class ChessMain {
 
 	public static void main(String[] args) {
 		Random r = new Random();
-		ChessPieceType king = ChessPieceType.KING;
-		ChessPieceType queen = ChessPieceType.QUEEN;
-		ChessPieceType rook = ChessPieceType.ROOK;
-		ChessPieceType bishop = ChessPieceType.BISHOP;
-		ChessPieceType knight = ChessPieceType.KNIGHT;
-		ChessPieceType pawn = ChessPieceType.PAWN;
+		ChessPieceType king = ChessPieceType.K;
+		ChessPieceType queen = ChessPieceType.Q;
+		ChessPieceType rook = ChessPieceType.R;
+		ChessPieceType bishop = ChessPieceType.B;
+		ChessPieceType knight = ChessPieceType.N;
+		ChessPieceType pawn = ChessPieceType.P;
 		
 		Colour w = Colour.WHITE;
 		Colour b = Colour.BLACK;
@@ -35,9 +35,11 @@ public class ChessMain {
 		b1.insertChessPiece(knight1, r.nextInt(BOARDLENGTH), r.nextInt(BOARDLENGTH));
 		b1.insertChessPiece(bishop1, r.nextInt(BOARDLENGTH), r.nextInt(BOARDLENGTH));
 		
-		System.out.println(b1.numberOfPiecesOnBoard(w));
-		System.out.println(b1.numberOfPiecesOnBoard(b));
-		System.out.println(b1.numberOfPiecesOnBoard());
+		System.out.println("Weiﬂe Figuren auf dem Brett: " + b1.numberOfPiecesOnBoard(w));
+		System.out.println("Schwarze Figuren auf dem Brett: " + b1.numberOfPiecesOnBoard(b));
+		System.out.println("Anzahl aller Figuren auf dem Brett: " + b1.numberOfPiecesOnBoard());
+		
+		b1.showBoard();
 	}
 
 }

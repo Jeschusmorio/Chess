@@ -1,5 +1,6 @@
 
 public enum ChessPieceType {
-	KING, QUEEN, ROOK, BISHOP, KNIGHT, PAWN;
+	K, Q, R, B, N, P;
+	//King, Queen, Rook, Bishop, Knight, Pawn
 	//König, Königin, Turm, Läufer, Springer, Bauer
 }

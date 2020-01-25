@@ -66,4 +66,26 @@ public class Board {
 		}
 		return numberOfPieces;
 	}
+	public void showBoard() {
+		//display the header of the board
+		System.out.println();
+		System.out.print("   ");
+		for (int i = 0; i < board.length; i++) {
+			System.out.print(i+" ");
+		}
+		System.out.println("");
+		
+		//display the content of the board
+		for (int i = 0; i < board.length; i++) {
+			System.out.print(i+" |");
+			for (int j = 0; j < board.length; j++) {
+				try {
+					System.out.print(board[j][i].type + "|");
+				} catch (NullPointerException e) {
+					System.out.print(" |");
+				}
+			}
+			System.out.println();
+		}
+	}
 }
